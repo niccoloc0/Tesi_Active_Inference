@@ -4,6 +4,65 @@ import random
 import wandb
 from queue import Queue
 import numpy as np
+import hmac
+import hashlib
+import json
+
+# --- HMAC Security for Sensor-Agent Communication ---
+class SecureMessage:
+    """
+    HMAC-based message authentication for secure sensor-agent communication.
+    Ensures data integrity and authenticity of messages.
+    """
+    
+    # Shared secret key
+    SECRET_KEY = b"!T\q!Un'8AL4bpHH"
+    
+    @staticmethod
+    def create_signature(data: dict) -> str:
+        """Create HMAC-SHA256 signature for the given data."""
+        # Serialize data to JSON with sorted keys for consistent ordering
+        message = json.dumps(data, sort_keys=True).encode('utf-8')
+        signature = hmac.new(
+            SecureMessage.SECRET_KEY,
+            message,
+            hashlib.sha256
+        ).hexdigest()
+        return signature
+    
+    @staticmethod
+    def sign_message(data: dict) -> dict:
+        """Sign a message by adding HMAC signature."""
+        signature = SecureMessage.create_signature(data)
+        return {
+            "payload": data,
+            "signature": signature
+        }
+    
+    @staticmethod
+    def verify_message(signed_message: dict) -> tuple[bool, dict]:
+        """
+        Verify message signature and return (is_valid, payload).
+        Returns (False, {}) if verification fails.
+        """
+        try:
+            payload = signed_message.get("payload", {})
+            received_signature = signed_message.get("signature", "")
+            
+            # Compute expected signature
+            expected_signature = SecureMessage.create_signature(payload)
+            
+            # Use constant-time comparison to prevent timing attacks
+            is_valid = hmac.compare_digest(received_signature, expected_signature)
+            
+            if is_valid:
+                return True, payload
+            else:
+                print("[Security] ⚠️ HMAC verification failed! Message may be tampered.")
+                return False, {}
+        except Exception as e:
+            print(f"[Security] ⚠️ Error during verification: {e}")
+            return False, {}
 
 # --- Active Inference Agent ---
 class ActiveInferenceAgent:
@@ -259,7 +318,13 @@ def run_agent(sensor_to_agent_queue, agent_to_sensor_queue):
     try:
         while True:
             # Get sensor data from queue
-            sensor_data = sensor_to_agent_queue.get()
+            signed_sensor_data = sensor_to_agent_queue.get()
+            
+            # Verify HMAC signature
+            is_valid, sensor_data = SecureMessage.verify_message(signed_sensor_data)
+            if not is_valid:
+                print("[Agent] ⚠️ Received tampered message from sensor! Skipping...")
+                continue
             
             # Check for shutdown signal
             if sensor_data.get("command") == "simulation_end":
@@ -287,9 +352,10 @@ def run_agent(sensor_to_agent_queue, agent_to_sensor_queue):
                 print(f"[Agent] Learned heating effect: {agent.B_heater:.3f}")
                 print(f"{'='*60}\n")
                 
-                # Send shutdown signal to sensor
+                # Send signed shutdown signal to sensor
                 shutdown_command = {"command": "budget_exhausted", "step": step_count, "sim_time": sim_time}
-                agent_to_sensor_queue.put(shutdown_command)
+                signed_shutdown = SecureMessage.sign_message(shutdown_command)
+                agent_to_sensor_queue.put(signed_shutdown)
                 break
             
             # Update for next iteration
@@ -330,7 +396,9 @@ def run_agent(sensor_to_agent_queue, agent_to_sensor_queue):
                 "belief_mean": result["belief_mean"],
                 "observation_precision": result["observation_precision"]
             }
-            agent_to_sensor_queue.put(command)
+            # Sign and send command to sensor
+            signed_command = SecureMessage.sign_message(command)
+            agent_to_sensor_queue.put(signed_command)
             
             step_count += 1
 
@@ -396,7 +464,7 @@ def run_sensor(sensor_to_agent_queue, agent_to_sensor_queue):
             season_config = SEASONS[current_season_name]
             outside_temp = season_config["outside_temp"] + random.uniform(-wandb.config["weather_fluctuation"], wandb.config["weather_fluctuation"])
             
-            # Send sensor data to agent
+            # Send sensor data to agent (signed)
             sensor_data = {
                 "room_temperature": room_temperature, 
                 "heater_on": heater_on, 
@@ -405,10 +473,17 @@ def run_sensor(sensor_to_agent_queue, agent_to_sensor_queue):
                 "sim_time": current_sim_time,
                 "outside_temp": outside_temp  # Add outside temp for agent's generative model
             }
-            sensor_to_agent_queue.put(sensor_data)
+            signed_sensor_data = SecureMessage.sign_message(sensor_data)
+            sensor_to_agent_queue.put(signed_sensor_data)
 
-            # Receive command from agent
-            command = agent_to_sensor_queue.get()
+            # Receive signed command from agent
+            signed_command = agent_to_sensor_queue.get()
+            
+            # Verify HMAC signature
+            is_valid, command = SecureMessage.verify_message(signed_command)
+            if not is_valid:
+                print("[Sensor] ⚠️ Received tampered command from agent! Skipping...")
+                continue
             
             # Check for budget exhaustion shutdown
             if command.get("command") == "budget_exhausted":
@@ -476,9 +551,10 @@ def run_sensor(sensor_to_agent_queue, agent_to_sensor_queue):
 
         print(f"\n[Sensor] Simulation finished after {current_sim_time:.1f} sim seconds ({step_count} steps).")
         
-        # Send shutdown signal to agent
+        # Send signed shutdown signal to agent
         shutdown_signal = {"command": "simulation_end"}
-        sensor_to_agent_queue.put(shutdown_signal)
+        signed_shutdown = SecureMessage.sign_message(shutdown_signal)
+        sensor_to_agent_queue.put(signed_shutdown)
 
     finally:
         if hasattr(run, 'finish'):
