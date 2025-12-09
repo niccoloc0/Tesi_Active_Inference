@@ -429,7 +429,7 @@ def run_sensor(sensor_to_agent_queue, agent_to_sensor_queue):
         print(f"[Sensor] WandB init failed: {e}. Continuing without logging.")
         class MockWandb:
             config = {
-                "simulation_duration": 240, "steps_per_season": 60, "heating_power": 1.5, 
+                "simulation_duration": 720, "steps_per_season": 60, "heating_power": 1.5, 
                 "weather_fluctuation": 1.5
             }
             def log(self, data): pass
