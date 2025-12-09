@@ -181,7 +181,7 @@ Questo approccio consente di **evolvere dinamicamente la fiducia** nel tempo, re
 
 Il **filtro di Kalman** è un efficiente filtro ricorsivo che valuta lo stato di un **sistema dinamico** a partire da una serie di misure soggette a rumore. Per le sue caratteristiche intrinseche, è un filtro ottimo per rumori e disturbi agenti su sistemi gaussiani a media nulla. Trova utilizzo come osservatore dello stato, come **loop transfer recovery (LTR)** e come sistema di identificazione parametrica. Il problema della progettazione del filtro di Kalman è il problema duale del **regolatore lineare quadratico (LQR)**.
 
-### 2. Cos'è l'HMAC?
+### 3. Cos'è l'HMAC?
 
 HMAC (**Keyed-Hash Message Authentication Code** o **Hash-based Message Authentication Code**) è un meccanismo per l'autenticazione di messaggi basato su una funzione di hash.
 Tramite HMAC è possibile garantire sia l'**integrità** che l'**autenticità** di un messaggio. HMAC non si occupa della cifratura: il messaggio (crittografato o meno) deve essere trasmesso insieme al codice HMAC. I destinatari in possesso della **chiave segreta** applicano l'algoritmo al messaggio ricevuto e verificano che il codice calcolato corrisponda a quello ricevuto; se sono identici, il messaggio è autentico. HMAC utilizza infatti una combinazione del messaggio originale e della **chiave segreta** per generare il codice.
