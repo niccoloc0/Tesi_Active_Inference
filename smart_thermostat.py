@@ -7,6 +7,9 @@ import numpy as np
 import hmac
 import hashlib
 import json
+import matplotlib
+matplotlib.use('Agg')  # Use non-interactive backend to avoid thread issues on macOS
+import matplotlib.pyplot as plt
 
 # --- HMAC Security for Sensor-Agent Communication ---
 class SecureMessage:
@@ -16,7 +19,7 @@ class SecureMessage:
     """
     
     # Shared secret key
-    SECRET_KEY = b"!T\q!Un'8AL4bpHH"
+    SECRET_KEY = b"!T\\q!Un'8AL4bpHH"
     
     @staticmethod
     def create_signature(data: dict) -> str:
@@ -74,14 +77,28 @@ class ActiveInferenceAgent:
     - Online learning of dynamics and precision
     """
     
-    def __init__(self, initial_budget=None):
+    def __init__(self, initial_budget=None, comfort_threshold=2.0, 
+                 reward_amount=0.3, penalty_amount=0.5 , heater_cost=0.2):
         # Configuration
         self.comfort_margin = 1.0
         self.SEASONS_TARGET = {"Inverno": 20.0, "Primavera": 21.0, "Estate": 24.0, "Autunno": 20.5}
         
-        # Budget
+        # Budget and Reward System
         self.budget = initial_budget if initial_budget else random.uniform(50, 100)
-        self.cost_per_step = 0.5
+        self.initial_budget = self.budget
+        self.cost_per_step = 0.1  # Costo fisso per step (ridotto)
+        
+        # === Sistema Reward/Penalty basato sulla temperatura ===
+        self.comfort_threshold = comfort_threshold  # Soglia: |temp - target| <= threshold
+        self.reward_amount = reward_amount          # Soldi guadagnati se in comfort zone
+        self.penalty_amount = penalty_amount        # Soldi persi se fuori comfort zone  
+        self.heater_cost = heater_cost              # Costo per usare il riscaldamento
+        
+        # Tracking rewards/penalties
+        self.total_rewards = 0.0
+        self.total_penalties = 0.0
+        self.steps_in_comfort = 0
+        self.steps_out_comfort = 0
         
         # Kalman Filter State: [temperature, temperature_rate]
         self.state_mean = np.array([19.0, 0.0])  # Initial belief
@@ -117,6 +134,8 @@ class ActiveInferenceAgent:
         self.uncertainty_threshold = 2.0  # Variance threshold for epistemic actions
         
         print(f"[Agent] Active Inference initialized with budget: {self.budget:.2f}")
+        print(f"[Agent] Comfort threshold: ±{self.comfort_threshold}°C")
+        print(f"[Agent] Reward: +{self.reward_amount} | Penalty: -{self.penalty_amount}")
         print(f"[Agent] Initial belief: temp={self.state_mean[0]:.2f}°C, uncertainty={self.state_cov[0,0]:.2f}")
     
     def predict(self, action, dt, outside_temp):
@@ -259,7 +278,13 @@ class ActiveInferenceAgent:
     
     def step(self, observation, current_action, current_season, outside_temp, dt):
         """
-        Single step of active inference
+        Single step of active inference with reward/penalty system.
+        
+        Budget changes:
+        - Fixed cost per step (small)
+        - Heater cost if heater is on
+        - REWARD if temperature is within comfort threshold
+        - PENALTY if temperature is outside comfort threshold
         """
         # 1. Predict next state
         predicted_mean, predicted_cov = self.predict(current_action, dt, outside_temp)
@@ -285,8 +310,33 @@ class ActiveInferenceAgent:
         # 6. Select sampling rate (epistemic action)
         new_dt, uncertainty = self.select_sampling_rate()
         
-        # 7. Update budget
-        self.budget -= self.cost_per_step
+        # === 7. SISTEMA REWARD/PENALTY ===
+        temp_error = abs(observation - target_temp)
+        in_comfort_zone = temp_error <= self.comfort_threshold
+        
+        # Costo fisso per step
+        step_cost = self.cost_per_step
+        
+        # Costo riscaldamento (se acceso)
+        if current_action:  # Se il riscaldamento era acceso
+            step_cost += self.heater_cost
+        
+        # Reward o Penalty in base alla temperatura
+        step_reward = 0.0
+        if in_comfort_zone:
+            # REWARD: temperatura entro la soglia comfort
+            step_reward = self.reward_amount
+            self.total_rewards += step_reward
+            self.steps_in_comfort += 1
+        else:
+            # PENALTY: temperatura fuori dalla soglia comfort
+            step_reward = -self.penalty_amount
+            self.total_penalties += self.penalty_amount
+            self.steps_out_comfort += 1
+        
+        # Aggiorna budget: -costi +reward
+        net_change = step_reward - step_cost
+        self.budget += net_change
         
         # 8. Check budget exhaustion
         budget_exhausted = self.budget <= 0
@@ -301,7 +351,15 @@ class ActiveInferenceAgent:
             "uncertainty": uncertainty,
             "belief_mean": self.state_mean[0],
             "observation_precision": self.observation_precision,
-            "budget_exhausted": budget_exhausted
+            "budget_exhausted": budget_exhausted,
+            # Nuove metriche reward
+            "in_comfort_zone": in_comfort_zone,
+            "step_reward": step_reward,
+            "step_cost": step_cost,
+            "net_change": net_change,
+            "temp_error": temp_error,
+            "total_rewards": self.total_rewards,
+            "total_penalties": self.total_penalties
         }
 
 def run_agent(sensor_to_agent_queue, agent_to_sensor_queue):
@@ -344,12 +402,14 @@ def run_agent(sensor_to_agent_queue, agent_to_sensor_queue):
             
             # Check for budget exhaustion
             if result.get("budget_exhausted", False):
+                comfort_pct = (agent.steps_in_comfort / step_count * 100) if step_count > 0 else 0
                 print(f"\n{'='*60}")
-                print(f"[Agent] 🔴 BUDGET EXHAUSTED at step {step_count}!")
+                print(f"[Agent] BUDGET EXHAUSTED at step {step_count}!")
                 print(f"[Agent] Survived for {sim_time:.1f} seconds ({step_count} steps)")
-                print(f"[Agent] Final belief: temp={agent.state_mean[0]:.2f}°C, uncertainty={agent.state_cov[0,0]:.3f}")
-                print(f"[Agent] Learned observation precision: {agent.observation_precision:.2f}")
-                print(f"[Agent] Learned heating effect: {agent.B_heater:.3f}")
+                print(f"[Agent] Final budget: {agent.budget:.2f} (started: {agent.initial_budget:.2f})")
+                print(f"[Agent] Total Rewards: +{agent.total_rewards:.2f} | Penalties: -{agent.total_penalties:.2f}")
+                print(f"[Agent] Comfort Zone: {comfort_pct:.1f}% ({agent.steps_in_comfort}/{step_count} steps)")
+                print(f"[Agent] Final belief: temp={agent.state_mean[0]:.2f}C, uncertainty={agent.state_cov[0,0]:.3f}")
                 print(f"{'='*60}\n")
                 
                 # Send signed shutdown signal to sensor
@@ -375,10 +435,11 @@ def run_agent(sensor_to_agent_queue, agent_to_sensor_queue):
             
             # Verbose logging every 10 steps
             if step_count % 10 == 0 or action_taken in ["TURN_ON", "TURN_OFF"]:
-                print(f"\n[Agent] Step {step_count} | Season: {current_season} | Budget: {agent.budget:.1f}")
-                print(f"  Observation: {observation:.2f}°C | Belief: {result['belief_mean']:.2f}°C | Error: {abs(observation - result['belief_mean']):.2f}°C")
-                print(f"  Uncertainty: {result['uncertainty']:.3f} | Free Energy: {result['free_energy']:.3f}")
-                print(f"  Epistemic Value: {result['epistemic_value']:.3f} | Pragmatic Value: {result['pragmatic_value']:.3f}")
+                comfort_icon = "[OK]" if result.get('in_comfort_zone', False) else "[!!]"
+                print(f"\n[Agent] Step {step_count} | Season: {current_season} | Budget: {agent.budget:.1f} {comfort_icon}")
+                print(f"  Observation: {observation:.2f}C | Belief: {result['belief_mean']:.2f}C | Error: {abs(observation - result['belief_mean']):.2f}C")
+                print(f"  Reward: {result.get('step_reward', 0):+.2f} | Total Rewards: +{agent.total_rewards:.1f} | Penalties: -{agent.total_penalties:.1f}")
+                print(f"  Epistemic: {result['epistemic_value']:.3f} | Pragmatic: {result['pragmatic_value']:.3f}")
                 print(f"  Action: {action_taken} | Heater: {'ON' if previous_action else 'OFF'} | Next dt: {current_dt:.1f}s")
             
             # Send command back to sensor
@@ -394,7 +455,13 @@ def run_agent(sensor_to_agent_queue, agent_to_sensor_queue):
                 "pragmatic_value": result["pragmatic_value"],
                 "uncertainty": result["uncertainty"],
                 "belief_mean": result["belief_mean"],
-                "observation_precision": result["observation_precision"]
+                "observation_precision": result["observation_precision"],
+                # Reward/Penalty metrics
+                "in_comfort_zone": result.get("in_comfort_zone", False),
+                "step_reward": result.get("step_reward", 0),
+                "total_rewards": result.get("total_rewards", 0),
+                "total_penalties": result.get("total_penalties", 0),
+                "comfort_percentage": (agent.steps_in_comfort / step_count * 100) if step_count > 0 else 0
             }
             # Sign and send command to sensor
             signed_command = SecureMessage.sign_message(command)
@@ -436,6 +503,18 @@ def run_sensor(sensor_to_agent_queue, agent_to_sensor_queue):
             def finish(self): pass
         run = MockWandb()
         wandb.config = run.config
+
+    # Data collection for local plotting
+    history = {
+        "time": [],
+        "room_temp": [],
+        "target_temp": [],
+        "outside_temp": [],
+        "heater_on": [],
+        "budget": [],
+        "rewards": [],
+        "penalties": []
+    }
 
     SEASONS = {
         "Inverno": {"outside_temp": 0}, "Primavera": {"outside_temp": 15},
@@ -508,6 +587,12 @@ def run_sensor(sensor_to_agent_queue, agent_to_sensor_queue):
             belief_mean = command.get("belief_mean", room_temperature)
             observation_precision = command.get("observation_precision", 16.0)
             
+            # Reward/Penalty metrics
+            step_reward = command.get("step_reward", 0.0)
+            total_rewards = command.get("total_rewards", 0.0)
+            total_penalties = command.get("total_penalties", 0.0)
+            comfort_percentage = command.get("comfort_percentage", 0.0)
+            
             # Physics Update (scaled by dt)
             heat_from_heater = (wandb.config["heating_power"] * current_dt) if heater_on else 0
             heat_loss_or_gain = (outside_temp - room_temperature) * 0.1 * current_dt
@@ -533,8 +618,24 @@ def run_sensor(sensor_to_agent_queue, agent_to_sensor_queue):
                     "Uncertainty (Variance)": uncertainty,
                     "Belief Mean": belief_mean,
                     "Observation Precision": observation_precision,
-                    "Belief Error": abs(belief_mean - room_temperature)
+                    "Belief Error": abs(belief_mean - room_temperature),
+                    # Reward System Metrics
+                    "Step Reward": step_reward,
+                    "Total Rewards": total_rewards,
+                    "Total Penalties": total_penalties,
+                    "Comfort Percentage": comfort_percentage
                 })
+
+            # Collect data for local plot
+            target_temp = SEASONS_TARGET[current_season_name]
+            history["time"].append(current_sim_time)
+            history["room_temp"].append(room_temperature)
+            history["target_temp"].append(target_temp)
+            history["outside_temp"].append(outside_temp)
+            history["heater_on"].append(1 if heater_on else 0)
+            history["budget"].append(agent_budget)
+            history["rewards"].append(total_rewards)
+            history["penalties"].append(total_penalties)
             
             # Advance time
             current_sim_time += current_dt
@@ -555,6 +656,44 @@ def run_sensor(sensor_to_agent_queue, agent_to_sensor_queue):
         shutdown_signal = {"command": "simulation_end"}
         signed_shutdown = SecureMessage.sign_message(shutdown_signal)
         sensor_to_agent_queue.put(signed_shutdown)
+
+        # Generate Local Plot
+        print("[Sensor] Generating local plot...")
+        plt.figure(figsize=(12, 10))
+        
+        # Subplot 1: Temperatures
+        plt.subplot(3, 1, 1)
+        plt.plot(history["time"], history["room_temp"], label="Room Temp", color="blue")
+        plt.plot(history["time"], history["target_temp"], label="Target", color="green", linestyle="--")
+        plt.plot(history["time"], history["outside_temp"], label="Outside", color="gray", alpha=0.5)
+        plt.ylabel("Temperature (°C)")
+        plt.title("Temperature Dynamics")
+        plt.legend()
+        plt.grid(True, alpha=0.3)
+        
+        # Subplot 2: Budget
+        plt.subplot(3, 1, 2)
+        plt.plot(history["time"], history["budget"], label="Budget", color="gold", linewidth=2)
+        plt.axhline(y=0, color='red', linestyle='--', alpha=0.5)
+        plt.ylabel("Budget (€)")
+        plt.title("Budget Evolution")
+        plt.legend()
+        plt.grid(True, alpha=0.3)
+        
+        # Subplot 3: Rewards/Penalties
+        plt.subplot(3, 1, 3)
+        plt.plot(history["time"], history["rewards"], label="Total Rewards", color="green")
+        plt.plot(history["time"], history["penalties"], label="Total Penalties", color="red")
+        plt.ylabel("Cumulative Value")
+        plt.xlabel("Time (s)")
+        plt.title("Review System Performance")
+        plt.legend()
+        plt.grid(True, alpha=0.3)
+        
+        save_path = "smart_thermostat_results.png"
+        plt.tight_layout()
+        plt.savefig(save_path)
+        print(f"[Sensor] Plot saved to {save_path}")
 
     finally:
         if hasattr(run, 'finish'):
