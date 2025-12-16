@@ -1,0 +1,20 @@
+{
+  "os": "macOS-26.1-arm64-arm-64bit-Mach-O",
+  "python": "CPython 3.13.7",
+  "startedAt": "2025-12-16T13:33:09.853979Z",
+  "args": [
+    "--run-all"
+  ],
+  "program": "/Users/niccolo/Developer/Tesi/Tesi_Active_Inference/smart_thermostat_experiments.py",
+  "codePath": "smart_thermostat_experiments.py",
+  "codePathLocal": "smart_thermostat_experiments.py",
+  "git": {
+    "remote": "https://github.com/niccoloc0/Tesi_Active_Inference",
+    "commit": "b06c2da7ddcf5de230a60db32adb244a6c7a4c63"
+  },
+  "email": "omega_oppose150@dralias.com",
+  "root": "/Users/niccolo/Developer/Tesi/Tesi_Active_Inference",
+  "host": "Niccolos-Mac-mini.local",
+  "executable": "/opt/homebrew/opt/python@3.13/bin/python3.13",
+  "writerId": "0bjxdov16g04ilheprfufym7afscapkr"
+}

@@ -1,0 +1,6 @@
+  [EPISTEMIC ONLY] Step 0 | Time: 0.0s | Temp: 12.72°C | Target: 20.0°C | Heater: OFF | Budget: 75.2 ✅
+  [EPISTEMIC ONLY] Step 20 | Time: 60.0s | Temp: 4.71°C | Target: 21.0°C | Heater: OFF | Budget: 63.2 ❌
+  [EPISTEMIC ONLY] Step 40 | Time: 112.0s | Temp: 14.95°C | Target: 21.0°C | Heater: OFF | Budget: 51.2 ❌
+  [EPISTEMIC ONLY] Step 60 | Time: 164.0s | Temp: 35.20°C | Target: 24.0°C | Heater: OFF | Budget: 40.8 ❌
+  [EPISTEMIC ONLY] Step 80 | Time: 215.0s | Temp: 12.04°C | Target: 20.5°C | Heater: OFF | Budget: 30.4 ❌
+  [EPISTEMIC ONLY] Step 100 | Time: 267.0s | Temp: 0.63°C | Target: 20.0°C | Heater: OFF | Budget: 18.4 ❌

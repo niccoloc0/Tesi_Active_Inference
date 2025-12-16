@@ -1,0 +1,9 @@
+  [PRAGMATIC ONLY] Step 0 | Time: 0.0s | Temp: 18.26°C | Target: 20.0°C | Heater: ON | Budget: 75.2 ✅
+  [PRAGMATIC ONLY] Step 20 | Time: 20.0s | Temp: 15.31°C | Target: 20.0°C | Heater: ON | Budget: 60.0 ❌
+  [PRAGMATIC ONLY] Step 40 | Time: 40.0s | Temp: 15.22°C | Target: 20.0°C | Heater: ON | Budget: 44.0 ❌
+  [PRAGMATIC ONLY] Step 60 | Time: 60.0s | Temp: 16.51°C | Target: 21.0°C | Heater: ON | Budget: 28.0 ❌
+  [PRAGMATIC ONLY] Step 80 | Time: 80.0s | Temp: 20.52°C | Target: 21.0°C | Heater: OFF | Budget: 28.2 ✅
+  [PRAGMATIC ONLY] Step 100 | Time: 100.0s | Temp: 20.78°C | Target: 21.0°C | Heater: OFF | Budget: 30.6 ✅
+  [PRAGMATIC ONLY] Step 120 | Time: 120.0s | Temp: 23.47°C | Target: 24.0°C | Heater: ON | Budget: 32.4 ❌
+  [PRAGMATIC ONLY] Step 140 | Time: 140.0s | Temp: 33.56°C | Target: 24.0°C | Heater: OFF | Budget: 22.6 ❌
+  [PRAGMATIC ONLY] Step 160 | Time: 160.0s | Temp: 34.54°C | Target: 24.0°C | Heater: OFF | Budget: 10.6 ❌

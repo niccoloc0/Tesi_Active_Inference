@@ -1,0 +1,56 @@
+_wandb:
+    value:
+        cli_version: 0.23.0
+        e:
+            fvt8y696qo53gfbv8fkhtqtawymjyjcx:
+                args:
+                    - --run-all
+                codePath: smart_thermostat_experiments.py
+                codePathLocal: smart_thermostat_experiments.py
+                email: omega_oppose150@dralias.com
+                executable: /opt/homebrew/opt/python@3.13/bin/python3.13
+                git:
+                    commit: b06c2da7ddcf5de230a60db32adb244a6c7a4c63
+                    remote: https://github.com/niccoloc0/Tesi_Active_Inference
+                host: Niccolos-Mac-mini.local
+                os: macOS-26.1-arm64-arm-64bit-Mach-O
+                program: /Users/niccolo/Developer/Tesi/Tesi_Active_Inference/smart_thermostat_experiments.py
+                python: CPython 3.13.7
+                root: /Users/niccolo/Developer/Tesi/Tesi_Active_Inference
+                startedAt: "2025-12-16T13:32:22.487419Z"
+                writerId: fvt8y696qo53gfbv8fkhtqtawymjyjcx
+        m: []
+        python_version: 3.13.7
+        t:
+            "3":
+                - 2
+                - 13
+                - 16
+            "4": 3.13.7
+            "5": 0.23.0
+            "10":
+                - 20
+            "12": 0.23.0
+            "13": darwin-arm64
+initial_budget:
+    value: 75
+mode:
+    value: full
+seasons_config:
+    value:
+        Autunno:
+            outside_temp: 12
+        Estate:
+            outside_temp: 35
+        Inverno:
+            outside_temp: 0
+        Primavera:
+            outside_temp: 15
+seasons_target:
+    value:
+        Autunno: 20.5
+        Estate: 24
+        Inverno: 20
+        Primavera: 21
+simulation_duration:
+    value: 300

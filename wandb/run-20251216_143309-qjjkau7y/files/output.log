@@ -1,0 +1,6 @@
+  [FULL] Step 0 | Time: 0.0s | Temp: 17.22°C | Target: 20.0°C | Heater: ON | Budget: 75.2 ✅
+  [FULL] Step 20 | Time: 60.0s | Temp: 19.70°C | Target: 21.0°C | Heater: ON | Budget: 59.2 ❌
+  [FULL] Step 40 | Time: 112.0s | Temp: 21.83°C | Target: 21.0°C | Heater: ON | Budget: 58.4 ❌
+  [FULL] Step 60 | Time: 164.0s | Temp: 35.24°C | Target: 24.0°C | Heater: OFF | Budget: 49.2 ❌
+  [FULL] Step 80 | Time: 215.0s | Temp: 19.30°C | Target: 20.5°C | Heater: OFF | Budget: 44.8 ❌
+  [FULL] Step 100 | Time: 267.0s | Temp: 15.45°C | Target: 20.0°C | Heater: ON | Budget: 37.6 ❌

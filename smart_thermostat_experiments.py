@@ -26,7 +26,13 @@ import numpy as np
 import hmac
 import hashlib
 import json
+import matplotlib
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
+try:
+    import wandb
+except ImportError:
+    wandb = None
 from dataclasses import dataclass, field
 from typing import List, Dict, Optional
 
@@ -421,9 +427,29 @@ def run_experiment(efe_mode: EFEMode, initial_budget: float = 75.0,
     weather_fluctuation = 1.5
     heating_power = 1.5
     
-    print(f"\n[Experiment] Starting {efe_mode.value} simulation...")
+    print(f"[Experiment] Starting {efe_mode.value} simulation...")
     print(f"[Experiment] Initial temp: {room_temperature:.2f}°C, Budget: {initial_budget:.2f}")
-    
+
+    # Initialize WandB
+    if wandb:
+        try:
+            wandb.init(
+                project="Smart Thermostat Experiments",
+                group="comparison_experiments",
+                name=f"experiment_{efe_mode.value}",
+                config={
+                    "mode": efe_mode.value,
+                    "initial_budget": initial_budget,
+                    "simulation_duration": simulation_duration,
+                    "seasons_config": SEASONS,
+                    "seasons_target": SEASONS_TARGET
+                },
+                reinit=True,
+                mode="online"  # Use 'offline' if no internet
+            )
+        except Exception as e:
+            print(f"WandB init failed: {e}")
+
     while current_sim_time < simulation_duration and agent.budget > 0:
         # Determine season
         season_idx = int(current_sim_time // 60) % 4
@@ -463,6 +489,26 @@ def run_experiment(efe_mode: EFEMode, initial_budget: float = 75.0,
         heat_loss_or_gain = (outside_temp - room_temperature) * 0.1 * current_dt
         room_temperature += heat_from_heater + heat_loss_or_gain
         
+        # Log to WandB
+        if wandb and wandb.run:
+            wandb.log({
+                "time": current_sim_time,
+                "room_temp": room_temperature,
+                "target_temp": target_temp,
+                "outside_temp": outside_temp,
+                "heater_on": int(heater_on),
+                "budget": agent.budget,
+                "step_reward": result["step_reward"],
+                "total_rewards": agent.total_rewards,
+                "total_penalties": agent.total_penalties,
+                "free_energy": result["free_energy"],
+                "epistemic_value": result["epistemic_value"],
+                "pragmatic_value": result["pragmatic_value"],
+                "uncertainty": result["uncertainty"],
+                "belief_mean": result["belief_mean"],
+                "in_comfort_zone": int(result["in_comfort_zone"])
+            })
+
         # Verbose logging with reward info
         if verbose and step_count % 20 == 0:
             mode_label = efe_mode.value.replace("_", " ").upper()
@@ -484,12 +530,15 @@ def run_experiment(efe_mode: EFEMode, initial_budget: float = 75.0,
         temp_errors = [abs(t - tgt) for t, tgt in zip(metrics.temperatures, metrics.target_temps)]
         metrics.avg_temp_error = sum(temp_errors) / len(temp_errors)
         metrics.avg_uncertainty = sum(metrics.uncertainties) / len(metrics.uncertainties)
-        metrics.heater_on_percentage = sum(metrics.heater_states) / len(metrics.heater_states) * 100
-        metrics.comfort_zone_percentage = sum(metrics.in_comfort_zone) / len(metrics.in_comfort_zone) * 100
+        metrics.heater_on_percentage = (sum(metrics.heater_states) / step_count * 100) if step_count > 0 else 0
+        metrics.comfort_zone_percentage = (metrics.in_comfort_zone.count(True) / step_count * 100) if step_count > 0 else 0
     
     # Calculate budget change
     budget_change = metrics.final_budget - initial_budget
     budget_change_str = f"+{budget_change:.2f}" if budget_change >= 0 else f"{budget_change:.2f}"
+
+    if wandb and wandb.run:
+        wandb.finish()
     
     print(f"\n[Experiment] {efe_mode.value} completed!")
     print(f"  Total steps: {metrics.total_steps}")
