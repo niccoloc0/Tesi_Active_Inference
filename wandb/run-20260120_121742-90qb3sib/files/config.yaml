@@ -1,0 +1,55 @@
+_wandb:
+    value:
+        cli_version: 0.23.0
+        e:
+            7it4un1f0q5ebhivihgptxu8vk6xtub7:
+                apple:
+                    ecpuCores: 4
+                    gpuCores: 16
+                    memoryGb: 24
+                    name: Apple M4 Pro
+                    pcpuCores: 8
+                    ramTotalBytes: "25769803776"
+                    swapTotalBytes: "4294967296"
+                codePath: smart_thermostat_extrinsic.py
+                codePathLocal: smart_thermostat_extrinsic.py
+                cpu_count: 12
+                cpu_count_logical: 12
+                disk:
+                    /:
+                        total: "494384795648"
+                        used: "229772644352"
+                email: omega_oppose150@dralias.com
+                executable: /opt/homebrew/opt/python@3.13/bin/python3.13
+                git:
+                    commit: b40ee3926106971fb6431bfa7fbe6dbf319a7a5b
+                    remote: https://github.com/niccoloc0/Tesi_Active_Inference
+                host: Niccolos-Mac-mini.local
+                memory:
+                    total: "25769803776"
+                os: macOS-26.2-arm64-arm-64bit-Mach-O
+                program: /Users/niccolo/Developer/Tesi/Tesi_Active_Inference/smart_thermostat_extrinsic.py
+                python: CPython 3.13.7
+                root: /Users/niccolo/Developer/Tesi/Tesi_Active_Inference
+                startedAt: "2026-01-20T11:17:42.670798Z"
+                writerId: 7it4un1f0q5ebhivihgptxu8vk6xtub7
+        m: []
+        python_version: 3.13.7
+        t:
+            "3":
+                - 2
+                - 16
+            "4": 3.13.7
+            "5": 0.23.0
+            "12": 0.23.0
+            "13": darwin-arm64
+agent_type:
+    value: extrinsic_td
+heating_power:
+    value: 1.5
+simulation_duration:
+    value: 720
+steps_per_season:
+    value: 60
+weather_fluctuation:
+    value: 1.5

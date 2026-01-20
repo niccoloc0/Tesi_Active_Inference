@@ -1,0 +1,35 @@
+{
+  "5_minuti": {
+    "name": "5_minuti",
+    "duration_seconds": 300,
+    "total_steps": 112,
+    "final_observation_precision": 4.556214740317983,
+    "final_b_heater": 1.7162977672268396,
+    "final_uncertainty": 0.22646414932073,
+    "comfort_percentage": 35.714285714285715,
+    "avg_prediction_error": 0.7172207195681297,
+    "avg_free_energy": 2.789764851236423
+  },
+  "10_minuti": {
+    "name": "10_minuti",
+    "duration_seconds": 600,
+    "total_steps": 226,
+    "final_observation_precision": 1.5997450086422387,
+    "final_b_heater": 1.239190765009113,
+    "final_uncertainty": 0.48555526679556316,
+    "comfort_percentage": 42.47787610619469,
+    "avg_prediction_error": 0.6556208198795619,
+    "avg_free_energy": 2.763732008599318
+  },
+  "30_minuti": {
+    "name": "30_minuti",
+    "duration_seconds": 1800,
+    "total_steps": 752,
+    "final_observation_precision": 1.0723545353622823,
+    "final_b_heater": 0.5,
+    "final_uncertainty": 0.7768400309620969,
+    "comfort_percentage": 52.26063829787234,
+    "avg_prediction_error": 0.8795382856188965,
+    "avg_free_energy": 2.786393797122778
+  }
+}

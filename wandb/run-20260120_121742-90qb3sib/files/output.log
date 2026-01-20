@@ -1,0 +1,662 @@
+[Sensor] Starting EXTRINSIC simulation. Initial temp: 18.6°C.
+
+[Agent-Extrinsic] Step 0 | Season: Inverno | Budget: 90.1 [OK]
+  Obs: 18.55°C | Belief: 18.54°C | V(s): 0.000
+  TD Error: 0.0000 | Pragmatic: 0.043 (vs Homeo: 2.243)
+  Reward: +0.30 | Action: TURN_ON
+
+[Agent-Extrinsic] Step 6 | Season: Inverno | Budget: 85.3 [!!]
+  Obs: 15.27°C | Belief: 15.22°C | V(s): -0.050
+  TD Error: -0.5000 | Pragmatic: -0.250 (vs Homeo: 88.220)
+  Reward: -0.50 | Action: TURN_OFF
+
+[Agent-Extrinsic] Step 7 | Season: Inverno | Budget: 84.7 [!!]
+  Obs: 10.53°C | Belief: 10.52°C | V(s): 0.000
+  TD Error: -0.4500 | Pragmatic: -0.250 (vs Homeo: 67.417)
+  Reward: -0.50 | Action: TURN_ON
+
+[Agent-Extrinsic] Step 10 | Season: Inverno | Budget: 82.3 [!!]
+  Obs: 12.97°C | Belief: 12.98°C | V(s): 0.000
+  TD Error: -0.5000 | Pragmatic: -0.250 (vs Homeo: 43.114)
+  Reward: -0.50 | Action: IDLE
+
+[Agent-Extrinsic] Step 13 | Season: Inverno | Budget: 79.9 [!!]
+  Obs: 14.63°C | Belief: 14.60°C | V(s): 0.000
+  TD Error: -0.5000 | Pragmatic: -0.296 (vs Homeo: 94.101)
+  Reward: -0.50 | Action: TURN_OFF
+
+[Agent-Extrinsic] Step 15 | Season: Inverno | Budget: 78.7 [!!]
+  Obs: 6.71°C | Belief: 6.74°C | V(s): -0.050
+  TD Error: -0.5000 | Pragmatic: -0.250 (vs Homeo: 121.298)
+  Reward: -0.50 | Action: TURN_ON
+
+[Agent-Extrinsic] Step 16 | Season: Inverno | Budget: 77.9 [!!]
+  Obs: 8.91°C | Belief: 8.95°C | V(s): -0.138
+  TD Error: -0.4975 | Pragmatic: -0.275 (vs Homeo: 194.194)
+  Reward: -0.50 | Action: TURN_OFF
+
+[Agent-Extrinsic] Step 17 | Season: Inverno | Budget: 77.3 [!!]
+  Obs: 6.62°C | Belief: 6.55°C | V(s): -0.253
+  TD Error: -0.4931 | Pragmatic: -0.319 (vs Homeo: 115.130)
+  Reward: -0.50 | Action: TURN_ON
+
+[Sensor] Step 20 | Time: 60.0s | Season: Inverno
+  Room: 12.21°C | Outside: -0.37°C | Target: 20.0°C
+
+[Agent-Extrinsic] Step 20 | Season: Primavera | Budget: 74.9 [!!]
+  Obs: 12.21°C | Belief: 12.59°C | V(s): -0.196
+  TD Error: -0.4867 | Pragmatic: -0.350 (vs Homeo: 39.994)
+  Reward: -0.50 | Action: IDLE
+
+[Agent-Extrinsic] Step 23 | Season: Primavera | Budget: 74.1 [OK]
+  Obs: 21.69°C | Belief: 21.60°C | V(s): 0.000
+  TD Error: 0.3000 | Pragmatic: 0.105 (vs Homeo: 0.940)
+  Reward: +0.30 | Action: TURN_OFF
+
+[Agent-Extrinsic] Step 24 | Season: Primavera | Budget: 74.3 [OK]
+  Obs: 20.30°C | Belief: 20.23°C | V(s): 0.000
+  TD Error: 0.3000 | Pragmatic: 0.084 (vs Homeo: 1.407)
+  Reward: +0.30 | Action: TURN_ON
+
+[Agent-Extrinsic] Step 25 | Season: Primavera | Budget: 74.3 [OK]
+  Obs: 22.14°C | Belief: 22.23°C | V(s): 0.000
+  TD Error: 0.3000 | Pragmatic: 0.143 (vs Homeo: 0.031)
+  Reward: +0.30 | Action: TURN_OFF
+
+[Agent-Extrinsic] Step 27 | Season: Primavera | Budget: 74.7 [OK]
+  Obs: 20.05°C | Belief: 19.96°C | V(s): 0.096
+  TD Error: 0.3791 | Pragmatic: 0.098 (vs Homeo: 1.193)
+  Reward: +0.30 | Action: TURN_ON
+
+[Agent-Extrinsic] Step 28 | Season: Primavera | Budget: 74.7 [OK]
+  Obs: 21.92°C | Belief: 21.98°C | V(s): 0.074
+  TD Error: 0.2599 | Pragmatic: 0.157 (vs Homeo: 0.171)
+  Reward: +0.30 | Action: TURN_OFF
+
+[Agent-Extrinsic] Step 30 | Season: Primavera | Budget: 74.3 [!!]
+  Obs: 18.88°C | Belief: 18.86°C | V(s): 0.000
+  TD Error: 0.2036 | Pragmatic: 0.096 (vs Homeo: 1.355)
+  Reward: -0.50 | Action: TURN_ON
+
+[Agent-Extrinsic] Step 31 | Season: Primavera | Budget: 74.3 [OK]
+  Obs: 22.04°C | Belief: 22.07°C | V(s): 0.110
+  TD Error: -0.3666 | Pragmatic: 0.167 (vs Homeo: 1.317)
+  Reward: +0.30 | Action: TURN_OFF
+
+[Agent-Extrinsic] Step 32 | Season: Primavera | Budget: 74.5 [OK]
+  Obs: 19.93°C | Belief: 19.93°C | V(s): 0.166
+  TD Error: 0.3349 | Pragmatic: -0.030 (vs Homeo: 3.605)
+  Reward: +0.30 | Action: TURN_ON
+
+[Agent-Extrinsic] Step 33 | Season: Primavera | Budget: 73.7 [!!]
+  Obs: 23.06°C | Belief: 23.07°C | V(s): 0.000
+  TD Error: 0.1336 | Pragmatic: 0.183 (vs Homeo: 0.031)
+  Reward: -0.50 | Action: TURN_OFF
+
+[Agent-Extrinsic] Step 35 | Season: Primavera | Budget: 74.1 [OK]
+  Obs: 19.20°C | Belief: 19.21°C | V(s): 0.000
+  TD Error: 0.2229 | Pragmatic: 0.022 (vs Homeo: 2.392)
+  Reward: +0.30 | Action: TURN_ON
+
+[Agent-Extrinsic] Step 36 | Season: Primavera | Budget: 74.1 [OK]
+  Obs: 22.53°C | Belief: 22.54°C | V(s): 0.000
+  TD Error: 0.3000 | Pragmatic: 0.181 (vs Homeo: 0.314)
+  Reward: +0.30 | Action: TURN_OFF
+
+[Agent-Extrinsic] Step 38 | Season: Primavera | Budget: 73.7 [!!]
+  Obs: 18.83°C | Belief: 18.85°C | V(s): 0.004
+  TD Error: 0.1781 | Pragmatic: 0.097 (vs Homeo: 1.564)
+  Reward: -0.50 | Action: TURN_ON
+
+[Agent-Extrinsic] Step 39 | Season: Primavera | Budget: 73.7 [OK]
+  Obs: 22.18°C | Belief: 22.21°C | V(s): 0.189
+  TD Error: -0.3171 | Pragmatic: 0.188 (vs Homeo: 0.779)
+  Reward: +0.30 | Action: TURN_OFF
+
+[Sensor] Step 40 | Time: 112.0s | Season: Primavera
+  Room: 20.37°C | Outside: 16.15°C | Target: 21.0°C
+
+[Agent-Extrinsic] Step 40 | Season: Primavera | Budget: 73.9 [OK]
+  Obs: 20.37°C | Belief: 20.32°C | V(s): 0.130
+  TD Error: 0.2211 | Pragmatic: -0.086 (vs Homeo: 4.718)
+  Reward: +0.30 | Action: IDLE
+
+[Agent-Extrinsic] Step 41 | Season: Primavera | Budget: 73.3 [!!]
+  Obs: 18.53°C | Belief: 18.59°C | V(s): -0.124
+  TD Error: 0.0518 | Pragmatic: 0.157 (vs Homeo: 1.074)
+  Reward: -0.50 | Action: TURN_ON
+
+[Agent-Extrinsic] Step 42 | Season: Primavera | Budget: 73.3 [OK]
+  Obs: 22.27°C | Belief: 22.23°C | V(s): 0.039
+  TD Error: -0.3306 | Pragmatic: 0.186 (vs Homeo: 0.657)
+  Reward: +0.30 | Action: TURN_OFF
+
+[Agent-Extrinsic] Step 43 | Season: Estate | Budget: 72.7 [!!]
+  Obs: 20.15°C | Belief: 20.61°C | V(s): 0.197
+  TD Error: 0.4446 | Pragmatic: 0.060 (vs Homeo: 1.906)
+  Reward: -0.50 | Action: TURN_ON
+
+[Agent-Extrinsic] Step 44 | Season: Estate | Budget: 71.9 [!!]
+  Obs: 28.92°C | Belief: 28.28°C | V(s): 0.000
+  TD Error: -0.6972 | Pragmatic: -0.248 (vs Homeo: 21.919)
+  Reward: -0.50 | Action: TURN_OFF
+
+[Agent-Extrinsic] Step 50 | Season: Estate | Budget: 68.3 [!!]
+  Obs: 33.68°C | Belief: 33.63°C | V(s): 0.000
+  TD Error: -0.5000 | Pragmatic: -0.250 (vs Homeo: 97.138)
+  Reward: -0.50 | Action: IDLE
+
+[Agent-Extrinsic] Step 56 | Season: Estate | Budget: 64.7 [!!]
+  Obs: 34.43°C | Belief: 34.47°C | V(s): -0.261
+  TD Error: -0.6363 | Pragmatic: -0.250 (vs Homeo: 219.767)
+  Reward: -0.50 | Action: TURN_ON
+
+[Agent-Extrinsic] Step 57 | Season: Estate | Budget: 63.9 [!!]
+  Obs: 39.06°C | Belief: 39.02°C | V(s): 0.000
+  TD Error: -0.2392 | Pragmatic: -0.250 (vs Homeo: 189.027)
+  Reward: -0.50 | Action: TURN_OFF
+
+[Sensor] Step 60 | Time: 164.0s | Season: Estate
+  Room: 36.30°C | Outside: 34.86°C | Target: 24.0°C
+
+[Agent-Extrinsic] Step 60 | Season: Estate | Budget: 62.1 [!!]
+  Obs: 36.30°C | Belief: 36.33°C | V(s): -0.253
+  TD Error: -0.4931 | Pragmatic: -0.319 (vs Homeo: 144.698)
+  Reward: -0.50 | Action: IDLE
+
+[Agent-Extrinsic] Step 70 | Season: Autunno | Budget: 57.7 [OK]
+  Obs: 20.15°C | Belief: 20.29°C | V(s): -0.044
+  TD Error: 0.3714 | Pragmatic: 0.160 (vs Homeo: 1.074)
+  Reward: +0.30 | Action: TURN_ON
+
+[Agent-Extrinsic] Step 71 | Season: Autunno | Budget: 57.7 [OK]
+  Obs: 21.74°C | Belief: 21.63°C | V(s): 0.131
+  TD Error: 0.4680 | Pragmatic: 0.095 (vs Homeo: 0.661)
+  Reward: +0.30 | Action: TURN_OFF
+
+[Agent-Extrinsic] Step 72 | Season: Autunno | Budget: 57.9 [OK]
+  Obs: 19.70°C | Belief: 19.66°C | V(s): 0.016
+  TD Error: 0.1721 | Pragmatic: 0.195 (vs Homeo: 0.188)
+  Reward: +0.30 | Action: TURN_ON
+
+[Agent-Extrinsic] Step 73 | Season: Autunno | Budget: 57.9 [OK]
+  Obs: 20.91°C | Belief: 21.00°C | V(s): 0.137
+  TD Error: 0.4136 | Pragmatic: 0.102 (vs Homeo: 1.386)
+  Reward: +0.30 | Action: TURN_OFF
+
+[Agent-Extrinsic] Step 74 | Season: Autunno | Budget: 58.1 [OK]
+  Obs: 19.33°C | Belief: 19.35°C | V(s): 0.041
+  TD Error: 0.2025 | Pragmatic: 0.190 (vs Homeo: 0.261)
+  Reward: +0.30 | Action: TURN_ON
+
+[Agent-Extrinsic] Step 75 | Season: Autunno | Budget: 58.1 [OK]
+  Obs: 21.15°C | Belief: 21.09°C | V(s): 0.188
+  TD Error: 0.4079 | Pragmatic: 0.131 (vs Homeo: 1.158)
+  Reward: +0.30 | Action: TURN_OFF
+
+[Agent-Extrinsic] Step 76 | Season: Autunno | Budget: 58.3 [OK]
+  Obs: 19.41°C | Belief: 19.38°C | V(s): 0.096
+  TD Error: 0.1900 | Pragmatic: 0.213 (vs Homeo: 0.164)
+  Reward: +0.30 | Action: TURN_ON
+
+[Agent-Extrinsic] Step 77 | Season: Autunno | Budget: 58.3 [OK]
+  Obs: 21.53°C | Belief: 21.56°C | V(s): 0.107
+  TD Error: 0.3049 | Pragmatic: -0.044 (vs Homeo: 3.250)
+  Reward: +0.30 | Action: TURN_OFF
+
+[Agent-Extrinsic] Step 78 | Season: Autunno | Budget: 58.5 [OK]
+  Obs: 18.66°C | Belief: 18.66°C | V(s): -0.254
+  TD Error: -0.0481 | Pragmatic: 0.200 (vs Homeo: 0.348)
+  Reward: +0.30 | Action: TURN_ON
+
+[Sensor] Step 80 | Time: 215.0s | Season: Autunno
+  Room: 22.82°C | Outside: 11.68°C | Target: 20.5°C
+
+[Agent-Extrinsic] Step 80 | Season: Autunno | Budget: 57.7 [!!]
+  Obs: 22.82°C | Belief: 22.80°C | V(s): -0.001
+  TD Error: -0.0061 | Pragmatic: 0.204 (vs Homeo: 0.956)
+  Reward: -0.50 | Action: TURN_OFF
+
+[Agent-Extrinsic] Step 81 | Season: Autunno | Budget: 57.9 [OK]
+  Obs: 19.33°C | Belief: 19.35°C | V(s): 0.195
+  TD Error: -0.2987 | Pragmatic: 0.203 (vs Homeo: 0.617)
+  Reward: +0.30 | Action: TURN_ON
+
+[Agent-Extrinsic] Step 82 | Season: Autunno | Budget: 57.9 [OK]
+  Obs: 21.44°C | Belief: 21.46°C | V(s): 0.157
+  TD Error: 0.2464 | Pragmatic: -0.052 (vs Homeo: 3.337)
+  Reward: +0.30 | Action: TURN_OFF
+
+[Agent-Extrinsic] Step 83 | Season: Autunno | Budget: 58.1 [OK]
+  Obs: 18.78°C | Belief: 18.78°C | V(s): -0.073
+  TD Error: 0.0739 | Pragmatic: 0.200 (vs Homeo: 0.609)
+  Reward: +0.30 | Action: TURN_ON
+
+[Agent-Extrinsic] Step 84 | Season: Autunno | Budget: 58.1 [OK]
+  Obs: 21.45°C | Belief: 21.41°C | V(s): 0.217
+  TD Error: 0.5307 | Pragmatic: -0.007 (vs Homeo: 3.013)
+  Reward: +0.30 | Action: TURN_OFF
+
+[Agent-Extrinsic] Step 85 | Season: Autunno | Budget: 58.3 [OK]
+  Obs: 18.50°C | Belief: 18.53°C | V(s): -0.167
+  TD Error: -0.0742 | Pragmatic: 0.263 (vs Homeo: 0.246)
+  Reward: +0.30 | Action: TURN_ON
+
+[Agent-Extrinsic] Step 86 | Season: Autunno | Budget: 58.3 [OK]
+  Obs: 21.14°C | Belief: 21.12°C | V(s): 0.343
+  TD Error: 0.7715 | Pragmatic: -0.096 (vs Homeo: 4.106)
+  Reward: +0.30 | Action: TURN_OFF
+
+[Agent-Extrinsic] Step 87 | Season: Autunno | Budget: 57.7 [!!]
+  Obs: 18.33°C | Belief: 18.37°C | V(s): -0.089
+  TD Error: -0.1178 | Pragmatic: 0.296 (vs Homeo: 0.200)
+  Reward: -0.50 | Action: TURN_ON
+
+[Agent-Extrinsic] Step 88 | Season: Autunno | Budget: 57.7 [OK]
+  Obs: 21.28°C | Belief: 21.26°C | V(s): 0.283
+  TD Error: -0.1323 | Pragmatic: 0.069 (vs Homeo: 2.763)
+  Reward: +0.30 | Action: TURN_OFF
+
+[Agent-Extrinsic] Step 89 | Season: Inverno | Budget: 57.9 [OK]
+  Obs: 18.86°C | Belief: 18.62°C | V(s): 0.010
+  TD Error: 0.0258 | Pragmatic: 0.172 (vs Homeo: 0.110)
+  Reward: +0.30 | Action: TURN_ON
+
+[Agent-Extrinsic] Step 90 | Season: Inverno | Budget: 57.1 [!!]
+  Obs: 17.80°C | Belief: 18.32°C | V(s): -0.203
+  TD Error: 0.0973 | Pragmatic: -0.018 (vs Homeo: 2.755)
+  Reward: -0.50 | Action: IDLE
+
+[Agent-Extrinsic] Step 92 | Season: Inverno | Budget: 55.5 [!!]
+  Obs: 16.49°C | Belief: 16.67°C | V(s): -0.400
+  TD Error: -0.8799 | Pragmatic: -0.341 (vs Homeo: 42.952)
+  Reward: -0.50 | Action: TURN_OFF
+
+[Agent-Extrinsic] Step 93 | Season: Inverno | Budget: 54.9 [!!]
+  Obs: 13.24°C | Belief: 13.23°C | V(s): -0.187
+  TD Error: -0.2782 | Pragmatic: -0.342 (vs Homeo: 45.224)
+  Reward: -0.50 | Action: TURN_ON
+
+[Agent-Extrinsic] Step 97 | Season: Inverno | Budget: 51.7 [!!]
+  Obs: 14.15°C | Belief: 14.22°C | V(s): -0.050
+  TD Error: -0.5000 | Pragmatic: -0.263 (vs Homeo: 72.602)
+  Reward: -0.50 | Action: TURN_OFF
+
+[Agent-Extrinsic] Step 98 | Season: Inverno | Budget: 51.1 [!!]
+  Obs: 11.34°C | Belief: 11.40°C | V(s): -0.251
+  TD Error: -0.6885 | Pragmatic: -0.350 (vs Homeo: 61.903)
+  Reward: -0.50 | Action: TURN_ON
+
+[Sensor] Step 100 | Time: 266.0s | Season: Inverno
+  Room: 13.17°C | Outside: 0.27°C | Target: 20.0°C
+
+[Agent-Extrinsic] Step 100 | Season: Inverno | Budget: 49.5 [!!]
+  Obs: 13.17°C | Belief: 13.17°C | V(s): -0.520
+  TD Error: -0.7608 | Pragmatic: -0.386 (vs Homeo: 38.307)
+  Reward: -0.50 | Action: IDLE
+
+[Agent-Extrinsic] Step 106 | Season: Inverno | Budget: 44.7 [!!]
+  Obs: 14.55°C | Belief: 14.50°C | V(s): -0.461
+  TD Error: -0.4798 | Pragmatic: -0.265 (vs Homeo: 71.012)
+  Reward: -0.50 | Action: TURN_OFF
+
+[Agent-Extrinsic] Step 107 | Season: Inverno | Budget: 44.1 [!!]
+  Obs: 9.94°C | Belief: 9.98°C | V(s): -0.603
+  TD Error: -0.6118 | Pragmatic: -0.386 (vs Homeo: 77.290)
+  Reward: -0.50 | Action: TURN_ON
+
+[Agent-Extrinsic] Step 109 | Season: Inverno | Budget: 42.5 [!!]
+  Obs: 12.76°C | Belief: 12.73°C | V(s): -0.192
+  TD Error: -0.2413 | Pragmatic: -0.567 (vs Homeo: 116.428)
+  Reward: -0.50 | Action: TURN_OFF
+
+[Agent-Extrinsic] Step 110 | Season: Inverno | Budget: 41.9 [!!]
+  Obs: 9.11°C | Belief: 9.14°C | V(s): -0.707
+  TD Error: -0.9278 | Pragmatic: -0.474 (vs Homeo: 80.239)
+  Reward: -0.50 | Action: TURN_ON
+
+[Agent-Extrinsic] Step 115 | Season: Primavera | Budget: 39.5 [OK]
+  Obs: 22.10°C | Belief: 22.08°C | V(s): 0.235
+  TD Error: 0.5337 | Pragmatic: 0.255 (vs Homeo: 0.089)
+  Reward: +0.30 | Action: TURN_OFF
+
+[Agent-Extrinsic] Step 117 | Season: Primavera | Budget: 39.9 [OK]
+  Obs: 19.41°C | Belief: 19.46°C | V(s): 0.282
+  TD Error: 0.3261 | Pragmatic: 0.230 (vs Homeo: 0.249)
+  Reward: +0.30 | Action: TURN_ON
+
+[Agent-Extrinsic] Step 118 | Season: Primavera | Budget: 39.9 [OK]
+  Obs: 21.46°C | Belief: 21.50°C | V(s): 0.118
+  TD Error: 0.1300 | Pragmatic: 0.165 (vs Homeo: 0.593)
+  Reward: +0.30 | Action: TURN_OFF
+
+[Agent-Extrinsic] Step 119 | Season: Primavera | Budget: 40.1 [OK]
+  Obs: 20.28°C | Belief: 20.23°C | V(s): 0.099
+  TD Error: 0.2675 | Pragmatic: 0.166 (vs Homeo: 1.071)
+  Reward: +0.30 | Action: TURN_ON
+
+[Sensor] Step 120 | Time: 318.0s | Season: Primavera
+  Room: 22.09°C | Outside: 14.35°C | Target: 21.0°C
+
+[Agent-Extrinsic] Step 120 | Season: Primavera | Budget: 40.1 [OK]
+  Obs: 22.09°C | Belief: 22.06°C | V(s): 0.325
+  TD Error: 0.4943 | Pragmatic: 0.244 (vs Homeo: 0.228)
+  Reward: +0.30 | Action: TURN_OFF
+
+[Agent-Extrinsic] Step 122 | Season: Primavera | Budget: 39.7 [!!]
+  Obs: 18.66°C | Belief: 18.71°C | V(s): -0.244
+  TD Error: -0.1045 | Pragmatic: 0.206 (vs Homeo: 0.920)
+  Reward: -0.50 | Action: TURN_ON
+
+[Agent-Extrinsic] Step 123 | Season: Primavera | Budget: 39.7 [OK]
+  Obs: 22.45°C | Belief: 22.35°C | V(s): 0.020
+  TD Error: -0.2374 | Pragmatic: 0.221 (vs Homeo: 0.453)
+  Reward: +0.30 | Action: TURN_OFF
+
+[Agent-Extrinsic] Step 124 | Season: Primavera | Budget: 39.9 [OK]
+  Obs: 20.12°C | Belief: 20.17°C | V(s): 0.197
+  TD Error: 0.4672 | Pragmatic: -0.061 (vs Homeo: 4.289)
+  Reward: +0.30 | Action: TURN_ON
+
+[Agent-Extrinsic] Step 125 | Season: Primavera | Budget: 39.1 [!!]
+  Obs: 23.20°C | Belief: 23.18°C | V(s): 0.016
+  TD Error: 0.1183 | Pragmatic: 0.280 (vs Homeo: 0.011)
+  Reward: -0.50 | Action: TURN_OFF
+
+[Agent-Extrinsic] Step 127 | Season: Primavera | Budget: 38.7 [!!]
+  Obs: 18.88°C | Belief: 18.91°C | V(s): -0.158
+  TD Error: -0.1756 | Pragmatic: 0.183 (vs Homeo: 1.097)
+  Reward: -0.50 | Action: TURN_ON
+
+[Agent-Extrinsic] Step 128 | Season: Primavera | Budget: 38.7 [OK]
+  Obs: 22.16°C | Belief: 22.13°C | V(s): 0.333
+  TD Error: -0.0243 | Pragmatic: 0.181 (vs Homeo: 1.190)
+  Reward: +0.30 | Action: TURN_OFF
+
+[Agent-Extrinsic] Step 129 | Season: Primavera | Budget: 38.9 [OK]
+  Obs: 19.69°C | Belief: 19.70°C | V(s): 0.348
+  TD Error: 0.2962 | Pragmatic: 0.076 (vs Homeo: 1.933)
+  Reward: +0.30 | Action: TURN_ON
+
+[Agent-Extrinsic] Step 130 | Season: Primavera | Budget: 38.9 [OK]
+  Obs: 22.34°C | Belief: 22.41°C | V(s): 0.063
+  TD Error: 0.0113 | Pragmatic: 0.197 (vs Homeo: 0.787)
+  Reward: +0.30 | Action: TURN_OFF
+
+[Agent-Extrinsic] Step 132 | Season: Primavera | Budget: 39.3 [OK]
+  Obs: 19.09°C | Belief: 19.04°C | V(s): -0.120
+  TD Error: 0.0131 | Pragmatic: 0.110 (vs Homeo: 1.798)
+  Reward: +0.30 | Action: TURN_ON
+
+[Agent-Extrinsic] Step 133 | Season: Primavera | Budget: 39.3 [OK]
+  Obs: 22.11°C | Belief: 22.18°C | V(s): 0.425
+  TD Error: 0.7950 | Pragmatic: 0.201 (vs Homeo: 0.761)
+  Reward: +0.30 | Action: TURN_OFF
+
+[Agent-Extrinsic] Step 135 | Season: Estate | Budget: 38.9 [!!]
+  Obs: 19.04°C | Belief: 19.49°C | V(s): -0.007
+  TD Error: 0.0423 | Pragmatic: 0.138 (vs Homeo: 0.519)
+  Reward: -0.50 | Action: TURN_ON
+
+[Agent-Extrinsic] Step 136 | Season: Estate | Budget: 38.1 [!!]
+  Obs: 28.28°C | Belief: 27.64°C | V(s): -0.019
+  TD Error: -0.5111 | Pragmatic: -0.261 (vs Homeo: 19.679)
+  Reward: -0.50 | Action: TURN_OFF
+
+[Sensor] Step 140 | Time: 373.0s | Season: Estate
+  Room: 32.27°C | Outside: 34.80°C | Target: 24.0°C
+
+[Agent-Extrinsic] Step 140 | Season: Estate | Budget: 35.7 [!!]
+  Obs: 32.27°C | Belief: 32.24°C | V(s): -0.203
+  TD Error: -0.6931 | Pragmatic: -0.350 (vs Homeo: 75.207)
+  Reward: -0.50 | Action: IDLE
+
+[Agent-Extrinsic] Step 150 | Season: Estate | Budget: 29.7 [!!]
+  Obs: 34.80°C | Belief: 34.81°C | V(s): -0.511
+  TD Error: -0.4787 | Pragmatic: -0.667 (vs Homeo: 117.955)
+  Reward: -0.50 | Action: IDLE
+
+[Sensor] Step 160 | Time: 427.0s | Season: Autunno
+  Room: 24.96°C | Outside: 13.31°C | Target: 20.5°C
+
+[Agent-Extrinsic] Step 160 | Season: Autunno | Budget: 23.7 [!!]
+  Obs: 24.96°C | Belief: 25.35°C | V(s): 0.040
+  TD Error: -0.2264 | Pragmatic: -0.136 (vs Homeo: 6.100)
+  Reward: -0.50 | Action: IDLE
+
+[Agent-Extrinsic] Step 162 | Season: Autunno | Budget: 24.1 [OK]
+  Obs: 20.14°C | Belief: 20.18°C | V(s): 0.200
+  TD Error: 0.3831 | Pragmatic: 0.219 (vs Homeo: 0.678)
+  Reward: +0.30 | Action: TURN_ON
+
+[Agent-Extrinsic] Step 163 | Season: Autunno | Budget: 24.1 [OK]
+  Obs: 21.43°C | Belief: 21.40°C | V(s): 0.190
+  TD Error: 0.2805 | Pragmatic: 0.240 (vs Homeo: 1.082)
+  Reward: +0.30 | Action: TURN_OFF
+
+[Agent-Extrinsic] Step 164 | Season: Autunno | Budget: 24.3 [OK]
+  Obs: 19.45°C | Belief: 19.49°C | V(s): 0.379
+  TD Error: 0.4709 | Pragmatic: 0.261 (vs Homeo: 0.236)
+  Reward: +0.30 | Action: TURN_ON
+
+[Agent-Extrinsic] Step 165 | Season: Autunno | Budget: 24.3 [OK]
+  Obs: 21.08°C | Belief: 21.02°C | V(s): 0.337
+  TD Error: 0.2403 | Pragmatic: 0.250 (vs Homeo: 1.761)
+  Reward: +0.30 | Action: TURN_OFF
+
+[Agent-Extrinsic] Step 166 | Season: Autunno | Budget: 24.5 [OK]
+  Obs: 19.13°C | Belief: 19.16°C | V(s): -0.341
+  TD Error: -0.3605 | Pragmatic: 0.306 (vs Homeo: 0.052)
+  Reward: +0.30 | Action: TURN_ON
+
+[Agent-Extrinsic] Step 168 | Season: Autunno | Budget: 23.7 [!!]
+  Obs: 22.79°C | Belief: 22.78°C | V(s): 0.004
+  TD Error: 0.2929 | Pragmatic: 0.261 (vs Homeo: 0.733)
+  Reward: -0.50 | Action: TURN_OFF
+
+[Agent-Extrinsic] Step 169 | Season: Autunno | Budget: 23.9 [OK]
+  Obs: 19.71°C | Belief: 19.71°C | V(s): 0.286
+  TD Error: -0.2278 | Pragmatic: 0.115 (vs Homeo: 2.938)
+  Reward: +0.30 | Action: TURN_ON
+
+[Agent-Extrinsic] Step 170 | Season: Autunno | Budget: 23.9 [OK]
+  Obs: 22.14°C | Belief: 22.08°C | V(s): 0.282
+  TD Error: 0.2821 | Pragmatic: 0.094 (vs Homeo: 2.376)
+  Reward: +0.30 | Action: TURN_OFF
+
+[Agent-Extrinsic] Step 171 | Season: Autunno | Budget: 24.1 [OK]
+  Obs: 18.68°C | Belief: 18.74°C | V(s): -0.262
+  TD Error: -0.2240 | Pragmatic: 0.277 (vs Homeo: 0.342)
+  Reward: +0.30 | Action: TURN_ON
+
+[Agent-Extrinsic] Step 173 | Season: Autunno | Budget: 23.3 [!!]
+  Obs: 23.28°C | Belief: 23.19°C | V(s): 0.000
+  TD Error: -0.0781 | Pragmatic: 0.275 (vs Homeo: 0.514)
+  Reward: -0.50 | Action: TURN_OFF
+
+[Agent-Extrinsic] Step 174 | Season: Autunno | Budget: 23.5 [OK]
+  Obs: 19.54°C | Belief: 19.61°C | V(s): 0.433
+  TD Error: -0.0875 | Pragmatic: 0.216 (vs Homeo: 1.801)
+  Reward: +0.30 | Action: TURN_ON
+
+[Agent-Extrinsic] Step 175 | Season: Autunno | Budget: 23.5 [OK]
+  Obs: 21.84°C | Belief: 21.80°C | V(s): 0.326
+  TD Error: 0.1710 | Pragmatic: -0.105 (vs Homeo: 3.448)
+  Reward: +0.30 | Action: TURN_OFF
+
+[Agent-Extrinsic] Step 176 | Season: Autunno | Budget: 23.7 [OK]
+  Obs: 18.54°C | Belief: 18.62°C | V(s): -0.230
+  TD Error: -0.2450 | Pragmatic: 0.260 (vs Homeo: 0.600)
+  Reward: +0.30 | Action: TURN_ON
+
+[Agent-Extrinsic] Step 177 | Season: Autunno | Budget: 23.7 [OK]
+  Obs: 21.44°C | Belief: 21.37°C | V(s): 0.280
+  TD Error: 0.7941 | Pragmatic: -0.152 (vs Homeo: 4.130)
+  Reward: +0.30 | Action: TURN_OFF
+
+[Agent-Extrinsic] Step 178 | Season: Autunno | Budget: 23.1 [!!]
+  Obs: 18.46°C | Belief: 18.48°C | V(s): -0.160
+  TD Error: -0.1233 | Pragmatic: 0.269 (vs Homeo: 0.458)
+  Reward: -0.50 | Action: TURN_ON
+
+[Sensor] Step 180 | Time: 480.0s | Season: Autunno
+  Room: 22.62°C | Outside: 11.33°C | Target: 20.5°C
+
+[Agent-Extrinsic] Step 180 | Season: Inverno | Budget: 22.3 [!!]
+  Obs: 22.62°C | Belief: 22.35°C | V(s): 0.218
+  TD Error: 0.1193 | Pragmatic: -0.069 (vs Homeo: 6.093)
+  Reward: -0.50 | Action: IDLE
+
+[Agent-Extrinsic] Step 190 | Season: Inverno | Budget: 17.5 [!!]
+  Obs: 15.36°C | Belief: 15.44°C | V(s): -0.399
+  TD Error: -0.6762 | Pragmatic: -0.407 (vs Homeo: 21.951)
+  Reward: -0.50 | Action: IDLE
+
+[Agent-Extrinsic] Step 191 | Season: Inverno | Budget: 16.7 [!!]
+  Obs: 15.43°C | Belief: 15.43°C | V(s): -0.447
+  TD Error: -0.4801 | Pragmatic: -0.372 (vs Homeo: 90.769)
+  Reward: -0.50 | Action: TURN_OFF
+
+[Agent-Extrinsic] Step 192 | Season: Inverno | Budget: 16.1 [!!]
+  Obs: 11.08°C | Belief: 10.99°C | V(s): -0.587
+  TD Error: -0.6110 | Pragmatic: -0.504 (vs Homeo: 52.083)
+  Reward: -0.50 | Action: TURN_ON
+
+[Agent-Extrinsic] Step 193 | Season: Inverno | Budget: 15.3 [!!]
+  Obs: 12.30°C | Belief: 12.38°C | V(s): -0.404
+  TD Error: -0.2965 | Pragmatic: -0.635 (vs Homeo: 133.011)
+  Reward: -0.50 | Action: TURN_OFF
+
+[Agent-Extrinsic] Step 194 | Season: Inverno | Budget: 14.7 [!!]
+  Obs: 8.94°C | Belief: 8.82°C | V(s): -0.770
+  TD Error: -0.8280 | Pragmatic: -0.475 (vs Homeo: 78.184)
+  Reward: -0.50 | Action: TURN_ON
+
+[Sensor] Step 200 | Time: 531.0s | Season: Inverno
+  Room: 14.18°C | Outside: 0.78°C | Target: 20.0°C
+
+[Agent-Extrinsic] Step 200 | Season: Inverno | Budget: 9.9 [!!]
+  Obs: 14.18°C | Belief: 14.16°C | V(s): -0.756
+  TD Error: -0.4288 | Pragmatic: -0.440 (vs Homeo: 29.079)
+  Reward: -0.50 | Action: IDLE
+
+[Agent-Extrinsic] Step 203 | Season: Primavera | Budget: 7.5 [!!]
+  Obs: 14.27°C | Belief: 14.70°C | V(s): -0.903
+  TD Error: -0.4585 | Pragmatic: -0.663 (vs Homeo: 100.936)
+  Reward: -0.50 | Action: TURN_OFF
+
+[Agent-Extrinsic] Step 205 | Season: Primavera | Budget: 6.3 [!!]
+  Obs: 14.54°C | Belief: 14.01°C | V(s): -1.094
+  TD Error: -0.5546 | Pragmatic: -0.442 (vs Homeo: 15.479)
+  Reward: -0.50 | Action: TURN_ON
+
+[Agent-Extrinsic] Step 208 | Season: Primavera | Budget: 5.5 [OK]
+  Obs: 21.71°C | Belief: 21.75°C | V(s): 0.247
+  TD Error: 0.1742 | Pragmatic: 0.215 (vs Homeo: 1.229)
+  Reward: +0.30 | Action: TURN_OFF
+
+[Agent-Extrinsic] Step 209 | Season: Primavera | Budget: 5.7 [OK]
+  Obs: 20.24°C | Belief: 20.15°C | V(s): 0.060
+  TD Error: 0.1103 | Pragmatic: 0.190 (vs Homeo: 1.265)
+  Reward: +0.30 | Action: TURN_ON
+
+[Agent-Extrinsic] Step 210 | Season: Primavera | Budget: 5.7 [OK]
+  Obs: 21.91°C | Belief: 22.04°C | V(s): 0.348
+  TD Error: 0.5700 | Pragmatic: 0.203 (vs Homeo: 0.391)
+  Reward: +0.30 | Action: TURN_OFF
+
+[Agent-Extrinsic] Step 212 | Season: Primavera | Budget: 6.1 [OK]
+  Obs: 19.68°C | Belief: 19.62°C | V(s): 0.376
+  TD Error: 0.3138 | Pragmatic: 0.214 (vs Homeo: 1.118)
+  Reward: +0.30 | Action: TURN_ON
+
+[Agent-Extrinsic] Step 213 | Season: Primavera | Budget: 6.1 [OK]
+  Obs: 21.75°C | Belief: 21.75°C | V(s): 0.417
+  TD Error: 0.3034 | Pragmatic: 0.222 (vs Homeo: 0.852)
+  Reward: +0.30 | Action: TURN_OFF
+
+[Agent-Extrinsic] Step 214 | Season: Primavera | Budget: 6.3 [OK]
+  Obs: 19.27°C | Belief: 19.35°C | V(s): 0.427
+  TD Error: 0.2691 | Pragmatic: -0.005 (vs Homeo: 3.396)
+  Reward: +0.30 | Action: TURN_ON
+
+[Agent-Extrinsic] Step 215 | Season: Primavera | Budget: 6.3 [OK]
+  Obs: 22.89°C | Belief: 22.85°C | V(s): 0.030
+  TD Error: -0.0981 | Pragmatic: 0.226 (vs Homeo: 0.532)
+  Reward: +0.30 | Action: TURN_OFF
+
+[Agent-Extrinsic] Step 217 | Season: Primavera | Budget: 5.9 [!!]
+  Obs: 18.64°C | Belief: 18.72°C | V(s): -0.201
+  TD Error: -0.0763 | Pragmatic: 0.086 (vs Homeo: 2.414)
+  Reward: -0.50 | Action: TURN_ON
+
+[Agent-Extrinsic] Step 218 | Season: Primavera | Budget: 5.9 [OK]
+  Obs: 22.42°C | Belief: 22.43°C | V(s): 0.152
+  TD Error: -0.1540 | Pragmatic: 0.218 (vs Homeo: 0.732)
+  Reward: +0.30 | Action: TURN_OFF
+
+[Sensor] Step 220 | Time: 582.0s | Season: Primavera
+  Room: 18.51°C | Outside: 13.82°C | Target: 21.0°C
+
+[Agent-Extrinsic] Step 220 | Season: Primavera | Budget: 5.5 [!!]
+  Obs: 18.51°C | Belief: 18.56°C | V(s): -0.198
+  TD Error: -0.0670 | Pragmatic: 0.153 (vs Homeo: 1.722)
+  Reward: -0.50 | Action: TURN_ON
+
+[Agent-Extrinsic] Step 221 | Season: Primavera | Budget: 5.5 [OK]
+  Obs: 21.78°C | Belief: 21.81°C | V(s): 0.482
+  TD Error: 0.1522 | Pragmatic: 0.218 (vs Homeo: 3.269)
+  Reward: +0.30 | Action: TURN_OFF
+
+[Agent-Extrinsic] Step 222 | Season: Primavera | Budget: 5.7 [OK]
+  Obs: 19.34°C | Belief: 19.39°C | V(s): 0.470
+  TD Error: 0.2594 | Pragmatic: 0.021 (vs Homeo: 3.278)
+  Reward: +0.30 | Action: TURN_ON
+
+[Agent-Extrinsic] Step 223 | Season: Primavera | Budget: 5.7 [OK]
+  Obs: 22.82°C | Belief: 22.78°C | V(s): 0.078
+  TD Error: -0.0948 | Pragmatic: 0.240 (vs Homeo: 0.795)
+  Reward: +0.30 | Action: TURN_OFF
+
+[Agent-Extrinsic] Step 224 | Season: Primavera | Budget: 5.9 [OK]
+  Obs: 20.35°C | Belief: 20.34°C | V(s): 0.227
+  TD Error: 0.4182 | Pragmatic: -0.156 (vs Homeo: 6.800)
+  Reward: +0.30 | Action: TURN_ON
+
+[Agent-Extrinsic] Step 225 | Season: Primavera | Budget: 5.1 [!!]
+  Obs: 23.32°C | Belief: 23.30°C | V(s): 0.014
+  TD Error: 0.0862 | Pragmatic: 0.271 (vs Homeo: 0.403)
+  Reward: -0.50 | Action: TURN_OFF
+
+[Agent-Extrinsic] Step 226 | Season: Estate | Budget: 4.5 [!!]
+  Obs: 20.41°C | Belief: 20.90°C | V(s): 0.209
+  TD Error: -0.2869 | Pragmatic: 0.003 (vs Homeo: 2.995)
+  Reward: -0.50 | Action: TURN_ON
+
+[Agent-Extrinsic] Step 227 | Season: Estate | Budget: 3.7 [!!]
+  Obs: 29.10°C | Belief: 28.51°C | V(s): -0.206
+  TD Error: -0.9049 | Pragmatic: -0.260 (vs Homeo: 19.653)
+  Reward: -0.50 | Action: TURN_OFF
+
+[Agent-Extrinsic] Step 230 | Season: Estate | Budget: 1.9 [!!]
+  Obs: 32.25°C | Belief: 32.12°C | V(s): -0.415
+  TD Error: -0.6640 | Pragmatic: -0.458 (vs Homeo: 73.829)
+  Reward: -0.50 | Action: IDLE
+
+============================================================
+[Agent-Extrinsic] BUDGET EXHAUSTED at step 234!
+[Agent-Extrinsic] Survived: 617.0s (234 steps)
+[Agent-Extrinsic] Final budget: -0.51
+[Agent-Extrinsic] Rewards: +27.30 | Penalties: -72.00
+[Agent-Extrinsic] Comfort Zone: 38.9%
+[Agent-Extrinsic] Avg TD Error: -0.2133
+============================================================
+
+[Agent-Extrinsic] Terminated.
+
+[Sensor] Budget exhaustion signal received.
+[Sensor] Terminated at 617.0s (step 234)
+
+[Sensor] Simulation finished: 617.0s (234 steps)
+[Sensor] Generating comparison plot...
+[Sensor] Plot saved to smart_thermostat_extrinsic_results.png
